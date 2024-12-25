@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nayara e Vini</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #000;
+            background-image: url("{% static 'images/background.png' %}");
+            background-repeat: repeat;
+            background-size: contain;
+            color: #fff;
+        }
+        h1, h2 {
+            color: #ff8fb1;
+        }
+        h1 {
+            font-size: 3em;
+            margin-top: 50px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        h2 {
+            font-size: 2em;
+            margin-top: 30px;
+            animation: slideIn 1.5s ease-in-out;
+        }
+        p {
+            font-size: 1.2em;
+            color: #fff;
+            margin: 20px auto;
+            width: 80%;
+            line-height: 1.6;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .gallery-item {
+            max-width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(255, 143, 177, 0.5);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 5px solid transparent;
+            transition: border-color 0.5s ease-in-out;
+        }
+        .gallery-item img:hover {
+            border-color: #ff8fb1;
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 1.2em;
+            color: #ff8fb1;
+            padding: 20px;
+            background-color: #1a1a1a;
+        }
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        #hearts div {
+            position: absolute;
+            bottom: -50px;
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(-50px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Notificação de Boas-Vindas -->
+    <div id="welcome-message" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: #ff8fb1; padding: 10px 20px; border-radius: 10px; color: #000; z-index: 1000;">
+        Bem-vindo(a) ao nosso cantinho especial! 💕
+    </div>
+    
+    <!-- Música de Fundo e Controle -->
+    <h1>Vini e Nay &#x2764;</h1>
+    <audio id="background-music" loop>
+        <source src="{% static 'music/Louvorzin.mp4' %}" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+    <button id="toggle-music" style="background-color: #ff8fb1; color: #000; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer;">
+        🎵 Tocar Música
+    </button>
+
+    <!-- Conteúdo Principal -->
+    <p>Nem muitas águas conseguem apagar o amor; os rios não conseguem levá-lo na correnteza...</p>
+    <p><em>Cânticos 8:7</em></p>
+    
+    <!-- Galeria -->
+    <h2>Nayara Linda</h2>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="{% static 'images/vinay.jpg' %}" alt="Viagem inesquecível">
+            <div class="gallery-caption">Primeira foto</div>
+
+            <img src="{% static 'images/IMG-20241217-WA0012.jpg' %}" alt="Viagem inesquecível">
+            <div class="gallery-caption">Primeira foto</div>
+
+            <img src="{% static 'images/vinay.jpg' %}" alt="Viagem inesquecível">
+            <div class="gallery-caption">Primeira foto</div>
+        </div>
+        <!-- Outras fotos -->
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>Me apaixonei pelo seu olhar quando nele vi o reflexo do Espírito Santo! 💖</p>
+    </footer>
+
+    <!-- Animações e Scripts -->
+    <div id="hearts"></div>
+    <script>
+        // Música de fundo
+        const music = document.getElementById('background-music');
+        const button = document.getElementById('toggle-music');
+        let isPlaying = false;
+        button.addEventListener('click', () => {
+            if (isPlaying) {
+                music.pause();
+                button.textContent = '🎵 Tocar Música';
+            } else {
+                music.play();
+                button.textContent = '⏸️ Pausar Música';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Efeitos de fundo animados
+        const heartsContainer = document.getElementById('hearts');
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.textContent = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+            heartsContainer.appendChild(heart);
+            setTimeout(() => heart.remove(), 4000);
+        }, 500);
+
+        // Notificação de boas-vindas
+        setTimeout(() => {
+            document.getElementById('welcome-message').style.display = 'none';
+        }, 5000);
+    </script>
+</body>
+</html>

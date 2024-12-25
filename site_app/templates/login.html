@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}"> <!-- Link para o arquivo CSS -->
+</head>
+<body>
+    <h1>Login</h1>
+    <div class="box">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Entrar</button>
+
+            <!-- Exemplo de link para recuperar senha -->
+            <div class="form-footer">
+                <p>Esqueceu a senha? <a href="#">Clique aqui</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

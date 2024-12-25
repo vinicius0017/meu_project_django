@@ -1,0 +1,156 @@
+/* Importa fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Eater&family=Fredericka+the+Great&family=Kaushan+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Definição de variáveis CSS para facilitar personalizações de cores */
+:root {
+    --cor-fundo: #000000; /* Cor de fundo da página */
+    --cor-titulo: #ffffff; /* Cor dos títulos */
+    --cor-botao: #000149; /* Cor principal dos botões */
+    --cor-botao-hover: #060029; /* Cor do botão ao passar o mouse */
+    --cor-formulario: #000000; /* Cor do fundo do formulário */
+    --cor-texto: #f8f0f06b; /* Cor dos textos no formulário */
+    --cor-borda: #0d0347; /* Cor da borda dos elementos */
+}
+
+/* Estilos gerais da página */
+body {
+    font-family: 'Poppins', sans-serif; /* Define a fonte principal */
+    background-color: var(--cor-formulario); /* Aplica a cor de fundo */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Alinha os elementos em um layout flexível */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    flex-direction: column; /* Alinha os elementos verticalmente */
+}
+
+/* Estilo do título principal */
+h1 {
+    color: var(--cor-titulo); /* Cor do texto do título */
+    text-align: center; /* Alinha o texto ao centro */
+    font-size: 2em; /* Tamanho do texto */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+/* Caixa de login */
+.box {
+    position: relative;
+    width: 320px;
+    height: 420px;
+    background: linear-gradient(145deg, #00208a, #4321ff); /* Gradiente azul escuro e preto */
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6); /* Sombra */
+    overflow: hidden; /* Esconde conteúdo extra */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid transparent; /* Faz a borda transparente para permitir o gradiente */
+    background-image: linear-gradient(145deg, #353a4b, #353a4b); /* Gradiente como fundo */
+    border-radius: 15px; /* Bordas arredondadas */
+    
+}
+
+/* Ajuste da borda para visibilidade */
+.box::before {
+    content: '';
+    position: absolute;
+    inset: -8px; /* Ajuste para dar mais margem e tornar a borda visível */
+    background: var(--cor-borda); /* Cor sólida da borda */
+    border-radius: 20px; /* Bordas arredondadas */
+    z-index: -1; /* Fica atrás da caixa */
+}
+
+/* Estilo interno do formulário */
+.box form {
+    position: relative;
+    width: 100%; /* Largura total, ajustada ao tamanho da caixa */
+    height: 100%; /* Altura total, ajustada ao tamanho da caixa */
+    padding: 30px;
+    background: #000000; /* Fundo preto */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8); /* Sombra interna */
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff; /* Texto em branco */
+}
+
+/* Título dentro do formulário */
+.box form h2 {
+    color: #ffffff; /* Texto branco */
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+/* Campos de entrada no formulário */
+.box form .inputBox {
+    position: relative; /* Necessário para posicionar span */
+    width: 100%; /* Largura total */
+    margin-top: 25px; /* Espaço acima do campo */
+}
+
+/* Estilo para os inputs */
+.box form .inputBox input {
+    width: 100%;
+    padding: 20px 15px; 
+    background: transparent;
+    outline: none;
+    border: none;
+    color: #ffffff; /* Texto branco */
+    font-size: 1.1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+
+/* Texto dentro do campo antes de digitar */
+.box form .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 20px 0px 10px;
+    pointer-events: none;
+    color: #ffffff; /* Texto branco */
+    font-size: 1em;
+    transition: 0.5s;
+}
+
+.box form .inputBox input:focus ~ span,
+.box form .inputBox input:valid ~ span {
+    color: #45f3ff; /* Cor azul ao focar */
+    font-size: 0.78em;
+    transform: translateY(-36px);
+}
+
+/* Botão de enviar */
+button {
+    width: 100%; /* Largura total */
+    padding: 12px; /* Espaço interno */
+    background-color: #353a4b; /* Cor do fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Remove borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 1.1em; /* Tamanho do texto */
+    cursor: pointer; /* Mostra o cursor de clique */
+    transition: background-color 0.3s; /* Transição suave */
+}
+
+button:hover {
+    background-color: var(--cor-titulo); /* Cor ao passar o mouse */
+}
+
+/* Links no rodapé do formulário */
+.form-footer {
+    text-align: center; /* Centraliza o texto */
+    margin-top: 15px; /* Espaço acima */
+}
+
+/* Links clicáveis */
+.form-footer a {
+    color: var(--cor-botao); /* Cor do link */
+    text-decoration: none; /* Remove o sublinhado */
+}
+.form-footer a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}

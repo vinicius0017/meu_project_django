@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Versículo do Dia</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+
+
+        <!-- Cabeçalho -->
+        <header class="header">
+            <h1>Versículo do Dia</h1>
+            <p class="slogan">Quero sempre deixar versículos pra você aqui!</p>
+        </header>
+
+        <!-- Conteúdo Principal -->
+        <main>
+            <section class="versiculo-dia">
+                <div class="versiculo">
+                    <img src="{% static 'images/versiculo.jpg' %}" alt="Versículo do Dia" class="versiculo-img">
+                    <p class="texto-versiculo">"{{ versiculo.texto }}"</p>
+                    <span class="referencia">{{ versiculo.referencia }}</span>
+                    <button class="btn-novo-versiculo" onclick="location.href='/novo-versiculo/'">Novo Versículo</button>
+                </div>
+            </section>
+
+            <!-- Lista de Versículos Recentes -->
+            <section class="recentes">
+                <h2>Versículos Recentes</h2>
+                <ul>
+                    <li>"O Senhor é o meu pastor e nada me faltará." - Salmos 23:1</li>
+                    <li>"Tudo posso naquele que me fortalece." - Filipenses 4:13</li>
+                    <li>"Porque Deus amou o mundo de tal maneira..." - João 3:16</li>
+                </ul>
+            </section>
+
+
+    </div>
+</body>
+</html>

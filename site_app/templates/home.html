@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página inicial</title>
+    <style>
+        :root {
+            --cor-fundo-gradiente-inicial: #574a55;
+            --cor-fundo-gradiente-final: #020202;
+            --cor-texto-padrao: #333;
+            --cor-header: #000000;
+            --cor-header-texto: #ecf0f1;
+            --cor-header-hover: #1abc9c;
+            --cor-container-fundo: #000000;
+            --cor-container-titulo: #ffffff;
+            --cor-container-texto: #ffffff;
+            --cor-botao-fundo: #2c272c;
+            --cor-botao-hover: #16a085;
+            --cor-botao-texto: #ffffff;
+            --cor-footer-fundo: #000000;
+            --cor-footer-texto: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, var(--cor-fundo-gradiente-inicial), var(--cor-fundo-gradiente-final));
+            color: var(--cor-texto-padrao);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        header {
+            background: var(--cor-header);
+            width: 100%;
+            padding: 15px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: var(--cor-header-texto);
+        }
+
+        header nav a {
+            color: var(--cor-header-texto);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        header nav a:hover {
+            color: var(--cor-header-hover);
+            transform: scale(1.1);
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background-color: var(--cor-container-fundo);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            margin-top: 100px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .container h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--cor-container-titulo);
+        }
+
+        .container p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--cor-container-texto);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1rem;
+            color: var(--cor-botao-texto);
+            background-color: var(--cor-botao-fundo);
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin: 5px;
+        }
+
+        .button:hover {
+            background-color: var(--cor-botao-hover);
+            transform: scale(1.1);
+        }
+
+        .links {
+            margin-top: 20px;
+        }
+
+        footer {
+            margin-top: 30px;
+            color: var(--cor-footer-texto);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            background: var(--cor-footer-fundo);
+            position: fixed;
+            bottom: 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Meu Sistema</h1>
+        <nav>
+            <a href="/perfil">Perfil</a>
+            <a href="/ajuda">Ajuda</a>
+            <a href="/logout">Sair</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Bem-vindo, {{ user.username }}!</h1>
+        <p>Você acabou de entrar no site </p>
+        <a href="/page1" class="button">página_1</gina-1></gina-1></a>
+        <div class="links">
+            <a href="/page2" class="button">Página_2</a>
+            <a href="/page3" class="button">página_3</a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 nosso ano. Você me conquista todos os dias.</p>
+    </footer>
+</body>
+</html>
+''
